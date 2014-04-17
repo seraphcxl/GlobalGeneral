@@ -9,7 +9,8 @@
 #import "DCMulticastDelegate.h"
 
 @implementation DCMulticastDelegate {
-    NSMutableArray *_delegates;
+    NSHashTable *_weakDelegates;
+    NSHashTable *_strongDelegates;
     Protocol *_protocol;
 }
 
@@ -18,20 +19,40 @@
         return nil;
     }
     if (self = [super init]) {
-        _delegates = [NSMutableArray array];
+        _weakDelegates = [NSHashTable weakObjectsHashTable];
+        _strongDelegates = [NSHashTable hashTableWithOptions:NSPointerFunctionsStrongMemory];
         _protocol = protocol;
     }
     return self;
 }
 
-- (void)addDelegate:(id)delegate {
+- (void)dealloc {
+    do {
+        NSLog(@"DCMulticastDelegate dealloc");
+    } while (NO);
+}
+
+- (void)addWeakDelegate:(id)delegate {
     do {
         if (delegate) {
             if (![delegate conformsToProtocol:_protocol]) {
                 break;
             }
-            @synchronized(_delegates) {
-                [_delegates addObject:delegate];
+            @synchronized(_weakDelegates) {
+                [_weakDelegates addObject:delegate];
+            }
+        }
+    } while (NO);
+}
+
+- (void)addStrongDelegate:(id)delegate {
+    do {
+        if (delegate) {
+            if (![delegate conformsToProtocol:_protocol]) {
+                break;
+            }
+            @synchronized(_strongDelegates) {
+                [_strongDelegates addObject:delegate];
             }
         }
     } while (NO);
@@ -45,9 +66,22 @@
             break;
         }
         
-        @synchronized(_delegates) {
+        @synchronized(_strongDelegates) {
             // if any of the delegates respond to this selector, return YES
-            for (id delegate in _delegates) {
+            for (id delegate in _strongDelegates) {
+                if ([delegate respondsToSelector:aSelector]) {
+                    result = YES;
+                    break;
+                }
+            }
+            if (result) {
+                break;
+            }
+        }
+        
+        @synchronized(_weakDelegates) {
+            // if any of the delegates respond to this selector, return YES
+            for (id delegate in _weakDelegates) {
                 if ([delegate respondsToSelector:aSelector]) {
                     result = YES;
                     break;
@@ -67,11 +101,31 @@
     do {
         // if not, try our delegates
         if (!signature) {
-            @synchronized(_delegates) {
-                for (id delegate in _delegates) {
+            @synchronized(_strongDelegates) {
+                BOOL find = NO;
+                for (id delegate in _strongDelegates) {
                     if ([delegate respondsToSelector:aSelector]) {
                         signature = [delegate methodSignatureForSelector:aSelector];
+                        find = YES;
+                        break;
                     }
+                }
+                if (find) {
+                    break;
+                }
+            }
+            
+            @synchronized(_weakDelegates) {
+                BOOL find = NO;
+                for (id delegate in _weakDelegates) {
+                    if ([delegate respondsToSelector:aSelector]) {
+                        signature = [delegate methodSignatureForSelector:aSelector];
+                        find = YES;
+                        break;
+                    }
+                }
+                if (find) {
+                    break;
                 }
             }
         }
@@ -84,9 +138,18 @@
         if (!anInvocation) {
             break;
         }
-        @synchronized(_delegates) {
+        @synchronized(_strongDelegates) {
             // forward the invocation to every delegate
-            for(id delegate in _delegates) {
+            for(id delegate in _strongDelegates) {
+                if ([delegate respondsToSelector:[anInvocation selector]]) {
+                    [anInvocation invokeWithTarget:delegate];
+                }
+            }
+        }
+        
+        @synchronized(_weakDelegates) {
+            // forward the invocation to every delegate
+            for(id delegate in _weakDelegates) {
                 if ([delegate respondsToSelector:[anInvocation selector]]) {
                     [anInvocation invokeWithTarget:delegate];
                 }

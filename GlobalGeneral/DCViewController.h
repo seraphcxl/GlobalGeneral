@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DCViewController : UIViewController
+@interface DCViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end

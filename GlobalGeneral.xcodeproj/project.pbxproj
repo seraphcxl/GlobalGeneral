@@ -24,6 +24,9 @@
 		89D25A6218FF7A32004C17DA /* DCMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D25A6118FF7A32004C17DA /* DCMulticastDelegate.m */; };
 		89D25AF718FF9B55004C17DA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 89D25AF518FF9B55004C17DA /* LICENSE */; };
 		89D25AF818FF9B55004C17DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 89D25AF618FF9B55004C17DA /* README.md */; };
+		89D25B0718FFA37B004C17DA /* DCTestTextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D25B0618FFA37B004C17DA /* DCTestTextFieldDelegate.m */; };
+		89D25B0A18FFA3D1004C17DA /* DCTestTextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D25B0918FFA3D1004C17DA /* DCTestTextViewDelegate.m */; };
+		89D25B0D18FFA9CF004C17DA /* DCMulticastDelegatePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D25B0C18FFA9CF004C17DA /* DCMulticastDelegatePool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,13 @@
 		89D25A6118FF7A32004C17DA /* DCMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCMulticastDelegate.m; sourceTree = "<group>"; };
 		89D25AF518FF9B55004C17DA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		89D25AF618FF9B55004C17DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		89D25B0518FFA37B004C17DA /* DCTestTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTestTextFieldDelegate.h; sourceTree = "<group>"; };
+		89D25B0618FFA37B004C17DA /* DCTestTextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTestTextFieldDelegate.m; sourceTree = "<group>"; };
+		89D25B0818FFA3D1004C17DA /* DCTestTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTestTextViewDelegate.h; sourceTree = "<group>"; };
+		89D25B0918FFA3D1004C17DA /* DCTestTextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTestTextViewDelegate.m; sourceTree = "<group>"; };
+		89D25B0B18FFA9CF004C17DA /* DCMulticastDelegatePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCMulticastDelegatePool.h; sourceTree = "<group>"; };
+		89D25B0C18FFA9CF004C17DA /* DCMulticastDelegatePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCMulticastDelegatePool.m; sourceTree = "<group>"; };
+		89D25B0E18FFAA9B004C17DA /* DCSingletonTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSingletonTemplate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,15 +131,22 @@
 		89D25A3118FF7A05004C17DA /* GlobalGeneral */ = {
 			isa = PBXGroup;
 			children = (
+				89D25B0E18FFAA9B004C17DA /* DCSingletonTemplate.h */,
 				89D25A3A18FF7A05004C17DA /* DCAppDelegate.h */,
 				89D25A3B18FF7A05004C17DA /* DCAppDelegate.m */,
 				89D25A3D18FF7A05004C17DA /* Main.storyboard */,
 				89D25A4018FF7A05004C17DA /* DCViewController.h */,
 				89D25A4118FF7A05004C17DA /* DCViewController.m */,
 				89D25A4318FF7A05004C17DA /* Images.xcassets */,
+				89D25B0B18FFA9CF004C17DA /* DCMulticastDelegatePool.h */,
+				89D25B0C18FFA9CF004C17DA /* DCMulticastDelegatePool.m */,
 				89D25A6018FF7A32004C17DA /* DCMulticastDelegate.h */,
 				89D25A6118FF7A32004C17DA /* DCMulticastDelegate.m */,
 				89D25A3218FF7A05004C17DA /* Supporting Files */,
+				89D25B0518FFA37B004C17DA /* DCTestTextFieldDelegate.h */,
+				89D25B0618FFA37B004C17DA /* DCTestTextFieldDelegate.m */,
+				89D25B0818FFA3D1004C17DA /* DCTestTextViewDelegate.h */,
+				89D25B0918FFA3D1004C17DA /* DCTestTextViewDelegate.m */,
 			);
 			path = GlobalGeneral;
 			sourceTree = "<group>";
@@ -263,10 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D25B0718FFA37B004C17DA /* DCTestTextFieldDelegate.m in Sources */,
 				89D25A6218FF7A32004C17DA /* DCMulticastDelegate.m in Sources */,
 				89D25A3818FF7A05004C17DA /* main.m in Sources */,
 				89D25A4218FF7A05004C17DA /* DCViewController.m in Sources */,
+				89D25B0D18FFA9CF004C17DA /* DCMulticastDelegatePool.m in Sources */,
 				89D25A3C18FF7A05004C17DA /* DCAppDelegate.m in Sources */,
+				89D25B0A18FFA3D1004C17DA /* DCTestTextViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

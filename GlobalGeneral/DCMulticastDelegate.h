@@ -12,6 +12,8 @@
 
 - (id)initWithProtocol:(Protocol *)protocol;
 
-- (void)addDelegate:(id)delegate;
+- (void)addWeakDelegate:(id)delegate;
+
+- (void)addStrongDelegate:(id)delegate;
 
 @end
