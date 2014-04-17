@@ -22,6 +22,8 @@
 		89D25A5518FF7A05004C17DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89D25A5318FF7A05004C17DA /* InfoPlist.strings */; };
 		89D25A5718FF7A05004C17DA /* GlobalGeneralTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D25A5618FF7A05004C17DA /* GlobalGeneralTests.m */; };
 		89D25A6218FF7A32004C17DA /* DCMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D25A6118FF7A32004C17DA /* DCMulticastDelegate.m */; };
+		89D25AF718FF9B55004C17DA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 89D25AF518FF9B55004C17DA /* LICENSE */; };
+		89D25AF818FF9B55004C17DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 89D25AF618FF9B55004C17DA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		89D25A5618FF7A05004C17DA /* GlobalGeneralTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalGeneralTests.m; sourceTree = "<group>"; };
 		89D25A6018FF7A32004C17DA /* DCMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCMulticastDelegate.h; sourceTree = "<group>"; };
 		89D25A6118FF7A32004C17DA /* DCMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCMulticastDelegate.m; sourceTree = "<group>"; };
+		89D25AF518FF9B55004C17DA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		89D25AF618FF9B55004C17DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 		89D25A1F18FF7A05004C17DA = {
 			isa = PBXGroup;
 			children = (
+				89D25AF518FF9B55004C17DA /* LICENSE */,
+				89D25AF618FF9B55004C17DA /* README.md */,
 				89D25A3118FF7A05004C17DA /* GlobalGeneral */,
 				89D25A5018FF7A05004C17DA /* GlobalGeneralTests */,
 				89D25A2A18FF7A05004C17DA /* Frameworks */,
@@ -236,6 +242,8 @@
 			files = (
 				89D25A4418FF7A05004C17DA /* Images.xcassets in Resources */,
 				89D25A3618FF7A05004C17DA /* InfoPlist.strings in Resources */,
+				89D25AF818FF9B55004C17DA /* README.md in Resources */,
+				89D25AF718FF9B55004C17DA /* LICENSE in Resources */,
 				89D25A3F18FF7A05004C17DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
